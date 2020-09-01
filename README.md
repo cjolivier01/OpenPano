@@ -5,11 +5,12 @@ OpenPano is a panorama stitching program written in C++ from scratch (without an
 described in the paper [Automatic Panoramic Image Stitching using Invariant Features](http://matthewalunbrown.com/papers/ijcv2007.pdf),
 which is also the one used by [AutoStitch](http://matthewalunbrown.com/autostitch/autostitch.html).
 
-This is a modified version of the OpenPano project. An Output file path parameter is added.  The default program produced
-an out.jpg file in the same directory as image-stitching executable.  This caused some issues with a Raspberry Pi
+This is a modified version of the OpenPano project. An Output file path parameter is added.  The default program creates
+a hardcoded out.jpg file name in the same directory as image-stitching executable.  This caused some issues with a Raspberry Pi
 project of mine.  I also improved the help page.  
 
-Below are brief instructions for installing on a Raspberry Pi OS, Debian Linux system.
+Below are brief instructions for installing on a Raspberry Pi OS, Debian Linux system.  Code can also be compiled
+for other platforms per link below
 
 For Detailed instructions for other platforms see original project at https://github.com/ppwwyyxx/OpenPano
 
@@ -19,6 +20,7 @@ For Detailed instructions for other platforms see original project at https://gi
 ```
 cd ~/
 sudo apt-get update
+sudo apt-get git
 sudo apt-get install build-essential
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
@@ -28,15 +30,15 @@ cmake ..
 make
 ```
 
-Executable file called image-stitching will be in ~/OpenPano directory
+Executable file called image-stitching will be created in the ~/OpenPano directory.
 Check to make sure there is a config.cfg file in the same folder as image-stitching
  
 ### Run:
-To display program help run with no parameters
+To display program help run image-stitching with no parameters
 
 
 ```
-./image_stitching
+./image-stitching
 
 ./image-stitching version 0.6
 
