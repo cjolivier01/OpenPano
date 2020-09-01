@@ -19,7 +19,7 @@ For Detailed instructions for other platforms see original project at https://gi
 #### Linux / OSX / WSL (bash on windows)
 
 Open a desktop terminal or SSH session to the desired machine or Raspberry pi.
-execute the following command to install, compile and test image-stitching.
+Run the following commands below to install, compile image-stitching.
 
 ```
 cd ~/
@@ -32,7 +32,7 @@ cmake src
 make
 ```
 
-Executable file called image-stitching will be created in the ~/OpenPano directory.
+compile will generate an executable file called image-stitching.  It will be saved in the ~/OpenPano directory.
 Check to make sure there is a config.cfg file in the same folder as image-stitching
 per instructions below
 
