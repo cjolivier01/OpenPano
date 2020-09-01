@@ -331,7 +331,7 @@ void planet(const char* fname) {
 	write_rgb(IMGFILE(planet), ret);
 }
 
-void show_help(int argc, char* argv[]) {
+void show_help(char* argv[]) {
     string prog_name = argv[0];
     string prog_ver = "0.7";
     printf("\n");
@@ -355,7 +355,7 @@ void show_help(int argc, char* argv[]) {
 
 int main(int argc, char* argv[]) {
 	if (argc < 3) {
-        show_help(argc, argv);
+        show_help(argv);
         return 0;
     }
 	TotalTimerGlobalGuard _g;
