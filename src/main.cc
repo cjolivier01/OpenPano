@@ -331,7 +331,7 @@ void planet(const char* fname) {
 	write_rgb(IMGFILE(planet), ret);
 }
 
-void show_help(char* argv[]) {
+void show_help(int argc, char* argv[]) {
     string prog_name = argv[0];
     string prog_ver = "0.7";
     printf("\n");
