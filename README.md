@@ -17,6 +17,9 @@ For Detailed instructions for other platforms see original project at https://gi
 ### Install and Compile:
 #### Linux / OSX / WSL (bash on windows)
 
+Open a desktop terminal or SSH session to the desired machine or Raspberry pi.
+execute the following command to install, compile and test image-stitching.
+
 ```
 cd ~/
 sudo apt-get update
@@ -24,17 +27,27 @@ sudo apt-get install git
 sudo apt-get install build-essential
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
-makedir build
-cd build
-cmake ..
+cmake src
 make
 ```
 
 Executable file called image-stitching will be created in the ~/OpenPano directory.
 Check to make sure there is a config.cfg file in the same folder as image-stitching
+per instructions below
+
+There are some test jpg files in the images folder. To Test image-stitching
+perform the following commands
+
+```
+cp src/config.cfg ./
+./image-stitching
+chmod +x test-pano.sh
+./test-pano.sh
+``` 
+ 
  
 ### Run:
-To display program help run image-stitching with no parameters
+To display program help run ./image-stitching with no parameters
 
 
 ```
