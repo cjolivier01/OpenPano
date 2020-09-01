@@ -79,6 +79,18 @@ notes
 
 ```
 
+### Troubleshooting:
 
+I am working on a raspberry pi python project to take timelapse images on multiple RPI's at the same time. Images are automatically
+sent using ZMQ protocol to a RPI running the hub program (can run on one of the sending pi's). 
+Images are saved to disk with a common sequence number naming.  When all images in a set are received 
+they are stitched and saved to a pano folder with the seqence number as part of the file naming.
 
+I currently have three RPI camera's running the pano timelapse in real time.  
+The test image files are of our computer/sewing room
+but I plan to move to other locations.
+I had to design and build a simple but sturdy mounting for each RPI's.  These allow accurate positioning since image-stitching 
+requires proper horizontal image overlap. Images also have align vertically.
+
+Will publish this project and leave a link here when posted on github. 
 
