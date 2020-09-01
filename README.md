@@ -32,11 +32,38 @@ Executable file called image-stitching will be in ~/OpenPano directory
 Check to make sure there is a config.cfg file in the same folder as image-stitching
  
 ### Run:
+To display program help run with no parameters
+
 
 ```
-$ ./image-stitching <outfile> <infile1> <infile2> ...
+./image_stitching
+
+./image-stitching version 0.6
+
+Creates a stitched panoramic image from two or more overlapping images.
+
+usage
+
+./image-stitching <outfn> <infn> <infn> .....
+where <outfn> : Output file path for pano stitch image file. Must incl .jpg or .png ext
+      <infn>  : Input file path to Two or More existing overlapping images.
+
+examples
+
+   ./image-stitching ./img_pano.jpg ./img_1.jpg ./img_2.jpg
+   ./image-stitching ./panos/pano_1.jpg ./images/img_1.jpg ./images/img_2.jpg ./images/img_3.jpg
+   ./image-stitching ./media/mypanos/pano_1021.jpg ./media/TL/rpi-1_1021.jpg ./media/TL/rpi-2_1021.jpg
+
+notes
+
+- Valid config.cfg file needs to be in same dir as this program.
+- Output image file directory path must exist. filename will be created or overwritten if it exists.
+- Input image file paths must exist.
+- This OpenPano project version is modified by Claude Pageau to Add Output Parameter.
+- For original project details see https://github.com/ppwwyyxx/OpenPano
+
 ```
 
-run ./image-stitching with no parameters to see program help and examples
+
 
 
