@@ -20,7 +20,7 @@ For Detailed instructions for other platforms see original project at https://gi
 ```
 cd ~/
 sudo apt-get update
-sudo apt-get git
+sudo apt-get install git
 sudo apt-get install build-essential
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
