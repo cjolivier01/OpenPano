@@ -338,7 +338,7 @@ void show_help(char* argv[]) {
     printf("%s version %s\n\n", prog_name.c_str(), prog_ver.c_str());
     printf("Creates a stitched panoramic image from two or more overlapping images.\n\n");
     printf("usage\n\n");
-    printf("%s <outfn> <infn> <infn> .....\n", prog_name.c_str());
+    printf("%s <outfn> <infn1> <infn2> .....\n", prog_name.c_str());
     printf("where <outfn> : Output file path for pano stitch image file. Must incl .jpg or .png ext\n");
     printf("      <infn>  : Input file path to Two or More existing overlapping images.\n\n");
     printf("examples\n\n");
