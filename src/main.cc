@@ -4,7 +4,7 @@
 
 #define _USE_MATH_DEFINES
 #include <cmath>
-
+#include <string>
 #include "feature/extrema.hh"
 #include "feature/matcher.hh"
 #include "feature/orientation.hh"
@@ -201,7 +201,6 @@ void test_warp(int argc, char* argv[]) {
 	}
 }
 
-
 void work(int argc, char* argv[]) {
 /*
  *  vector<Mat32f> imgs(argc - 1);
@@ -213,7 +212,7 @@ void work(int argc, char* argv[]) {
  *  }
  */
 	vector<string> imgs;
-	REPL(i, 1, argc) imgs.emplace_back(argv[i]);
+	REPL(i, 2, argc) imgs.emplace_back(argv[i]);
 	Mat32f res;
 	if (CYLINDER) {
 		CylinderStitcher p(move(imgs));
@@ -230,7 +229,9 @@ void work(int argc, char* argv[]) {
 	}
 	{
 		GuardedTimer tm("Writing image");
-		write_rgb(IMGFILE(out), res);
+        string pano_out = argv[1];
+        printf("Pano dest Output FilePath is %s\n", pano_out.c_str());
+		write_rgb(pano_out, res);
 	}
 }
 
@@ -330,9 +331,33 @@ void planet(const char* fname) {
 	write_rgb(IMGFILE(planet), ret);
 }
 
+void show_help(char* argv[]) {
+    string prog_name = argv[0];
+    string prog_ver = "0.7";
+    printf("\n");
+    printf("%s version %s\n\n", prog_name.c_str(), prog_ver.c_str());
+    printf("Creates a stitched panoramic image from two or more overlapping images.\n\n");
+    printf("usage\n\n");
+    printf("%s <outfn> <infn> <infn> .....\n", prog_name.c_str());
+    printf("where <outfn> : Output file path for pano stitch image file. Must incl .jpg or .png ext\n");
+    printf("      <infn>  : Input file path to Two or More existing overlapping images.\n\n");
+    printf("examples\n\n");
+    printf("   %s ./img_pano.jpg ./img_1.jpg ./img_2.jpg\n", prog_name.c_str());
+    printf("   %s ./panos/pano_1.jpg ./images/img_1.jpg ./images/img_2.jpg ./images/img_3.jpg\n", prog_name.c_str());
+    printf("   %s ./media/mypanos/pano_1021.jpg ./media/TL/rpi-1_1021.jpg ./media/TL/rpi-2_1021.jpg\n\n", prog_name.c_str());
+    printf("notes\n\n");
+    printf("- Valid config.cfg file needs to be in same dir as this program.\n");
+    printf("- Output image file directory path must exist. filename will be created or overwritten if it exists.\n");
+    printf("- Input image file paths must exist.\n");
+    printf("- This OpenPano project version is modified by Claude Pageau to Add Output Parameter.\n");
+    printf("- For original project details see https://github.com/ppwwyyxx/OpenPano\n\n");
+    }
+
 int main(int argc, char* argv[]) {
-	if (argc <= 2)
-		error_exit("Need at least two images to stitch.\n");
+	if (argc < 3) {
+        show_help(argc, argv);
+        return 0;
+    }
 	TotalTimerGlobalGuard _g;
 	srand(time(NULL));
 	init_config();
