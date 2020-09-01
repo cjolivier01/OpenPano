@@ -1,4 +1,5 @@
-# OpenPano
+# OpenPano image-stitching
+#### Modified by Claude Pageau
 
 ## Introduction
 OpenPano is a panorama stitching program written in C++ from scratch (without any vision libraries). It mainly follows the routine
@@ -79,18 +80,20 @@ notes
 
 ```
 
-### Troubleshooting:
+### Notes:
 
 I am working on a raspberry pi python project to take timelapse images on multiple RPI's at the same time. Images are automatically
-sent using ZMQ protocol to a RPI running the hub program (can run on one of the sending pi's). 
+sent using imageZMQ to a RPI running the hub program (can run on one of the sending pi's). 
 Images are saved to disk with a common sequence number naming.  When all images in a set are received 
 they are stitched and saved to a pano folder with the seqence number as part of the file naming.
 
 I currently have three RPI camera's running the pano timelapse in real time.  
 The test image files are of our computer/sewing room
 but I plan to move to other locations.
-I had to design and build a simple but sturdy mounting for each RPI's.  These allow accurate positioning since image-stitching 
-requires proper horizontal image overlap. Images also have align vertically.
+I had to design and build a simple but sturdy mounting for each RPI using wood and foam board.  
+This allows accurate camera positioning since image-stitching 
+requires accurate horizontal image overlap. Images also have to align vertically.
+Getting multiple camera's aligned is much easier with my camera support system.
 
 Will publish this project and leave a link here when posted on github. 
 
