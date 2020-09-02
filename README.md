@@ -42,9 +42,10 @@ cd ~/
 sudo apt-get update
 sudo apt-get install git
 sudo apt-get install build-essential
+sudo apt-get install cmake
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
-cmake src
+cmake -C src
 make
 ```
 
