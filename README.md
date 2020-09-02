@@ -48,9 +48,9 @@ cmake src
 make
 ```
 
-compile will generate an executable file called image-stitching.  It will be saved in the ~/OpenPano directory.
+Compile will generate an executable file called image-stitching in ~/OpenPano folder. 
 Check to make sure there is a config.cfg file in the same folder as image-stitching
-per instructions below
+per manual terminal instructions below.
 
 There are some test jpg files in the images folder. To Test image-stitching
 perform the following commands
@@ -62,10 +62,8 @@ chmod +x test-pano.sh
 ./test-pano.sh
 ``` 
  
- 
 ### Run:
 To display program help run ./image-stitching with no parameters
-
 
 ```
 ./image-stitching
