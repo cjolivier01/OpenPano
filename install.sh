@@ -16,12 +16,20 @@ if [ -d OpenPano ]; then
     exit 1
 fi
 
+echo "Running sudo apt-get update"
+echo "This might take a bit of time but will better ensure a successful compile"
+sudo apt-get update
 echo "Running sudo apt-get install git"
 sudo apt-get -y install git
-echo "Running sudo apt-get install build-essential"
+echo "Running sudo apt-get install build-essentials, cmake, pkg-config and jpeg lsdependencies"
 echo "This might take some time ..."
 sudo apt-get -y install build-essential
 sudo apt-get -y install cmake
+sudo apt-get -y install pkg-config
+sudo apt-get -y install libjpeg-dev 
+sudo apt-get -y install libtiff5-dev
+sudo apt-get -y install libjasper-dev
+sudo apt-get -y install libpng-dev
 echo "Running git clone https://github.com/pageauc/OpenPano"
 echo "This will take some time ..."
 git clone https://github.com/pageauc/OpenPano
@@ -31,8 +39,8 @@ if [ ! -d OpenPano ]; then
     exit 1
 fi
 cd ~/OpenPano
-echo "Running cmake src from OpenPano Directory"
-cmake -C src
+echo "Running cmake from OpenPano Directory"
+cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 echo "Running make to compile image-stitching from source"
 echo "This will take take some time ...."
 make

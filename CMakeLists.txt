@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.1)
+cmake_minimum_required(VERSION 3.13)
 project (OpenPano LANGUAGES CXX)
 
 # set a default build type if none was provided

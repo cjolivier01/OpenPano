@@ -37,15 +37,22 @@ Raise a Project GitHub issue if you have problems.
 Open a desktop terminal or SSH session to the desired machine or Raspberry pi.
 Run the following commands below to install, compile image-stitching.
 
+This assumes you are comfortable with SSH/Terminal commands
+
 ```
 cd ~/
 sudo apt-get update
 sudo apt-get install git
 sudo apt-get install build-essential
 sudo apt-get install cmake
+sudo apt-get pkg-config
+sudo apt-get install libjpeg-dev 
+sudo apt-get install libtiff5-dev
+sudo apt-get install libjasper-dev
+sudo apt-get install libpng-dev
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
-cmake -C src
+cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 make
 ```
 
@@ -57,11 +64,34 @@ There are some test jpg files in the images folder. To Test image-stitching
 perform the following commands
 
 ```
+cd ~/OpenPano
 cp src/config.cfg ./
 ./image-stitching
 chmod +x test-pano.sh
 ./test-pano.sh
 ``` 
+ 
+***Note*** You may want to copy the image_stitching and config.cfg to a production or working folder.
+
+eg.
+```
+cd ~/
+mkdir stitch
+cd stitch
+cp ~/OpenPano/image-stitching ./
+cp ~/OpenPano/config.cfg ./
+mkdir images
+mkdir panos
+cp ~/OpenPano/images/* images
+./image-stitching panos/first_pano.jpg images/img1.jpg images/img2.jpg images/img3.jpg 
+ls images
+```
+If you like you can then remove the OpenPano folder
+```
+cd ~/
+sudo rm -r OpenPano
+```
+Hope this helps
  
 ### Run:
 To display program help run ./image-stitching with no parameters
