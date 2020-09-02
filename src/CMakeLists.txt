@@ -1,5 +1,5 @@
 # find all dependency libraries:
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.1)
 find_package(OpenMP)
 if (NOT OPENMP_FOUND)
 	message(WARNING "OpenMP is not found. Will be slow.")

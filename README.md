@@ -15,9 +15,9 @@ for other platforms per link below
 
 For Detailed instructions for other platforms see original project at https://github.com/ppwwyyxx/OpenPano
 
-### Quick Install Raspberry PI, Debian or compatible UNIX distro.
+### Quick Install: Raspberry PI, Debian or compatible UNIX distro
 **IMPORTANT** - It is suggested you Run ***sudo apt-get update*** before running this
-curl install script.
+curl install script.  This script will run update just to ensure success.  Tested OK on Raspbian Buster.
 
 ***Step 1*** With mouse left button highlight curl command in code box below. Right click mouse in **highlighted** area and Copy.     
 ***Step 2*** On RPI putty SSH or terminal session right click, select paste then Enter to download and run script.     
@@ -31,7 +31,7 @@ If OpenPano folder already exists, Install will Exit.
 
 Raise a Project GitHub issue if you have problems.
 
-### Install and Compile:
+### Manual Install and Compile:
 #### Linux / OSX / WSL (bash on windows)
 
 Open a desktop terminal or SSH session to the desired machine or Raspberry pi.
@@ -39,6 +39,7 @@ Run the following commands below to install, compile image-stitching.
 
 This assumes you are comfortable with SSH/Terminal commands
 
+#### Install and Compile OpenPano image-stitching 
 ```
 cd ~/
 sudo apt-get update
@@ -56,13 +57,34 @@ cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 make
 ```
 
-Compile will generate an executable file called image-stitching in ~/OpenPano folder. 
-Check to make sure there is a config.cfg file in the same folder as image-stitching
+This worked with a fresh install of Buster, but I had problems with Jessie on an old single core processor. After
+compiling and installing Eigen3 and redoing OpenPano cmake and make image-stitching ran like a charm.
+Did not test on Stretch. On Jessie cmake complained about eigen3 support and also 
+cmake version (should be fixed).
+If you have cmake problems related to eigen3. install eigen3 support per the following.
+
+#### Install Eigen3 Support
+```
+cd ~/
+git clone https://github.com/libigl/eigen
+cd eigen
+mkdir build
+cd build
+cmake
+make
+sudo make install
+```
+If eigen3 installed OK, then rerun OpenPano cmake steps per previous instructions above.
+You should be good to go. If necessary you can run a ***make clean*** and retry cmake and make.
+
+Compile will generate an executable file called ***image-stitching*** in ~/OpenPano or possibly
+~/OpenPano/src folder. Check to make sure there is a config.cfg file in the same folder as image-stitching
 per manual terminal instructions below.
 
-There are some test jpg files in the images folder. To Test image-stitching
+There are three test jpg files in the ~/OpenPano/images folder. To Test image-stitching
 perform the following commands
 
+#### Run a Test Stitch
 ```
 cd ~/OpenPano
 cp src/config.cfg ./
@@ -73,7 +95,8 @@ chmod +x test-pano.sh
  
 ***Note*** You may want to copy the image_stitching and config.cfg to a production or working folder.
 
-eg.
+example commands to create a stitch folder for working with OpenPano.
+
 ```
 cd ~/
 mkdir stitch
