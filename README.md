@@ -15,7 +15,7 @@ for other platforms per link below
 
 For Detailed instructions for other platforms see original project at https://github.com/ppwwyyxx/OpenPano
 
-### Quick Install or Upgrade
+### Quick Install Raspberry PI, Debian or compatible UNIX distro.
 **IMPORTANT** - It is suggested you Run ***sudo apt-get update*** before running this
 curl install script.
 
@@ -25,7 +25,11 @@ curl install script.
     curl -L https://raw.github.com/pageauc/OpenPano/master/install.sh | bash
 
 The command above will Install dependencies, Clone, Compile and Test this GitHub project using ***install.sh*** script. 
-If OpenPano already exists, Install will exit.
+If OpenPano folder already exists, Install will Exit.
+
+***IMPORTANT*** This will take some time so be patient ....
+
+Raise a Project GitHub issue if you have problems.
 
 ### Install and Compile:
 #### Linux / OSX / WSL (bash on windows)

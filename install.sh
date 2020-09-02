@@ -12,10 +12,9 @@ if [ -d OpenPano ]; then
     echo "Rename or Delete the existing OpenPano Folder"
     echo "eg."
     echo "    mv OpenPano OpenPanobak"
-    echo "or  rm -r OpenPano"
-    read -p "Press enter to continue"
+    echo "or  sudo rm -r OpenPano"
     exit 1
-fi    
+fi
 
 echo "Running sudo apt-get install git"
 sudo apt-get -y install git
@@ -28,10 +27,9 @@ git clone https://github.com/pageauc/OpenPano
 if [ ! -d OpenPano ]; then
     echo "ERROR: OpenPano Folder Not Found. git failed for some reason."
     echo "       Investigate problem.  Could be internet communications"
-    read -p "Press enter to continue"
     exit 1
 fi
-cd ~/OpenPano   
+cd ~/OpenPano
 echo "Running cmake src from OpenPano Directory"
 cmake src
 echo "Running make to compile image-stitching from source"
@@ -47,10 +45,11 @@ chmod +x test-pano.sh
 ls ./images
 if [ -f images/test-pano.jpg ]; then
     echo "Success. Found stitch output images/test-pano.jpg"
+    echo "To check project Run"
+    echo "cd OpenPano"
 else
     echo "Failed. images/test-pano.jpg file Not Found"
     echo "Please Investigate."
 fi
 echo "Install and Test Complete"
-read -p "Press enter to Exit install.sh"
 echo "Bye ..."
