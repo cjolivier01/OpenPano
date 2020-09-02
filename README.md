@@ -57,11 +57,15 @@ cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 make
 ```
 
-This worked with a fresh install of Buster, but I had problems with Jessie on an old single core processor. After
-compiling and installing Eigen3 and redoing OpenPano cmake and make image-stitching ran like a charm.
-Did not test on Stretch. On Jessie cmake complained about eigen3 support and also 
-cmake version (should be fixed).
-If you have cmake problems related to eigen3. install eigen3 support per the following.
+#### Buster and Stretch
+This curl install worked with a fresh install of Buster and Stretch Compiled and Tested OK. 
+#### Jessie
+Jessie was running on an old single core processor. There was a problem with cmake complained about eigen3 support.
+It also complained about cmake version. Had to change ~OpenPano/CMakeLists.txt and OpenPano/src/CMakeLists.txt
+top line to lower version to ***cmake_minimum_required(VERSION 3.6.2)*** from 3.13. This worked except for a
+minor non fatal macro warning. After cloning, compiling and installing Eigen3 per steps below I redid OpenPano
+cmake and make and ***image-stitching*** test ran like a charm.
+If you have cmake problems related to eigen3. You can install eigen3 support per the commands below.
 
 #### Install Eigen3 Support
 ```

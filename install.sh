@@ -18,7 +18,7 @@ fi
 
 echo "Running sudo apt-get update"
 echo "This might take a bit of time but will better ensure a successful compile"
-sudo apt-get update
+sudo apt-get -y update
 echo "Running sudo apt-get install git"
 sudo apt-get -y install git
 echo "Running sudo apt-get install build-essentials, cmake, pkg-config and jpeg lsdependencies"
