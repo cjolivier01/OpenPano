@@ -7,7 +7,7 @@ git clone https://github.com/libigl/eigen
 cd eigen
 mkdir build
 cd build
-cmake
+cmake ..
 make
 sudo make install
 echo "eigen3 should be installed"

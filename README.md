@@ -81,10 +81,11 @@ git clone https://github.com/libigl/eigen
 cd eigen
 mkdir build
 cd build
-cmake
+cmake ..
 make
 sudo make install
 ```
+***Notice there are two periods after cmake***    
 If eigen3 installed OK, then rerun OpenPano cmake steps per previous instructions above.
 You should be good to go. If necessary you can run a ***make clean*** and retry cmake and make.
 
