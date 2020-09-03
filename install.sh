@@ -40,10 +40,18 @@ if [ ! -d OpenPano ]; then
 fi
 cd ~/OpenPano
 echo "Running cmake from OpenPano Directory"
+mkdir build
+cd build
 cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 echo "Running make to compile image-stitching from source"
 echo "This will take take some time ...."
 make
+if [ -f image-stitching ]; then
+    cp image-stitching ../
+else
+    echo "Cannot find image stitching in build folder."    
+fi
+cd ..
 echo "Running cp src/config.cfg ./"
 cp src/config.cfg ./
 echo "Show Help"

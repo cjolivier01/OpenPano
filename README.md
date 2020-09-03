@@ -27,6 +27,10 @@ curl install script.  This script will run update just to ensure success.  Teste
 The command above will Install dependencies, Clone, Compile and Test this GitHub project using ***install.sh*** script. 
 If OpenPano folder already exists, Install will Exit.
 
+#### Install eigen3 if required
+
+    curl -L https://raw.github.com/pageauc/OpenPano/master/eigen3-install.sh | bash
+
 ***IMPORTANT*** This will take some time so be patient ....
 
 Raise a Project GitHub issue if you have problems.
@@ -53,8 +57,11 @@ sudo apt-get install libjasper-dev
 sudo apt-get install libpng-dev
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
+mkdir build
+cd build
 cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 make
+cp image-stitching ../
 ```
 
 #### Buster and Stretch
