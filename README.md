@@ -57,11 +57,9 @@ sudo apt-get install libjasper-dev
 sudo apt-get install libpng-dev
 git clone https://github.com/pageauc/OpenPano
 cd ~/OpenPano
-mkdir build
-cd build
 cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 make
-cp image-stitching ../
+
 ```
 
 #### Buster and Stretch
