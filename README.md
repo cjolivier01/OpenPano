@@ -15,7 +15,13 @@ for other platforms per link below
 
 For Detailed instructions for other platforms see original project at https://github.com/ppwwyyxx/OpenPano
 
+
+
 ### Quick Install: Raspberry PI, Debian or compatible UNIX distro
+#### I recommend you run the eigen3 curl script before running OpenPano curl script
+
+#### OpenPano Install
+
 **IMPORTANT** - It is suggested you Run ***sudo apt-get update*** before running this
 curl install script.  This script will run update just to ensure success.  Tested OK on Raspbian Buster.
 
@@ -27,7 +33,7 @@ curl install script.  This script will run update just to ensure success.  Teste
 The command above will Install dependencies, Clone, Compile and Test this GitHub project using ***install.sh*** script. 
 If OpenPano folder already exists, Install will Exit.
 
-#### Install eigen3 if required
+#### eigen3 libraries Install
 
     curl -L https://raw.github.com/pageauc/OpenPano/master/eigen3-install.sh | bash
 
@@ -84,8 +90,9 @@ cd build
 cmake ..
 make
 sudo make install
+pkg-config --modversion eigen3
 ```
-***Notice there are two periods after cmake***    
+***Notice there are two periods after cmake***  If version number displayed eigen3 is installed.  
 If eigen3 installed OK, then rerun OpenPano cmake steps per previous instructions above.
 You should be good to go. If necessary you can run a ***make clean*** and retry cmake and make.
 

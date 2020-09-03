@@ -26,7 +26,7 @@ echo "-- This might take some time ..."
 sudo apt-get -y install build-essential
 sudo apt-get -y install cmake
 sudo apt-get -y install pkg-config
-sudo apt-get -y install libjpeg-dev 
+sudo apt-get -y install libjpeg-dev
 sudo apt-get -y install libtiff5-dev
 sudo apt-get -y install libjasper-dev
 sudo apt-get -y install libpng-dev
@@ -42,12 +42,12 @@ cd ~/OpenPano
 echo "-- Running cmake from OpenPano Directory"
 cmake -S ~/OpenPano/src -B ~/OpenPano -Wno-dev
 echo "-- Running make to compile image-stitching from source"
-echo "-- This will take take some time ...."
+echo "-- This will take some time ...."
 make
 if [ -f image-stitching ]; then
     cp image-stitching ../
 else
-    echo "-- Cannot find image stitching in build folder."    
+    echo "-- Cannot find image stitching in build folder."
 fi
 echo "-- Running cp src/config.cfg ./"
 echo "-- Show image-stitching command Help"
