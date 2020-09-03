@@ -65,7 +65,9 @@ cp image-stitching ../
 ```
 
 #### Buster and Stretch
-This curl install worked with a fresh install of Buster and Stretch Compiled and Tested OK. 
+This curl install worked with a fresh install of Buster and (Stretch required eigen3 install). 
+Both Compiled and Tested OK. 
+
 #### Jessie
 Jessie was running on an old single core processor. There was a problem with cmake complained about eigen3 support.
 It also complained about cmake version. Had to change ~OpenPano/CMakeLists.txt and OpenPano/src/CMakeLists.txt
