@@ -15,12 +15,10 @@ for other platforms per link below
 
 For Detailed instructions for other platforms see original project at https://github.com/ppwwyyxx/OpenPano
 
-
-
-### Quick Install: Raspberry PI, Debian or compatible UNIX distro
+## Quick Install: Raspberry PI, Debian or compatible UNIX distro
 #### I recommend you run the eigen3 curl script before running OpenPano curl script
 
-#### OpenPano Install
+### OpenPano Install
 
 **IMPORTANT** - It is suggested you Run ***sudo apt-get update*** before running this
 curl install script.  This script will run update just to ensure success.  Tested OK on Raspbian Buster.
@@ -31,9 +29,15 @@ curl install script.  This script will run update just to ensure success.  Teste
     curl -L https://raw.github.com/pageauc/OpenPano/master/install.sh | bash
 
 The command above will Install dependencies, Clone, Compile and Test this GitHub project using ***install.sh*** script. 
-If OpenPano folder already exists, Install will Exit.
+If OpenPano folder already exists, Install will Exit. If you get eigen3 error then install it per curl script below. 
+when done delete the ~/OpenPan folder. 
+```
+cd ~/
+sudo rm -r OpenPano
+```    
+Then rerun OpenPano curl script above.     
 
-#### eigen3 libraries Install
+### eigen3 libraries Install
 
     curl -L https://raw.github.com/pageauc/OpenPano/master/eigen3-install.sh | bash
 
@@ -41,7 +45,7 @@ If OpenPano folder already exists, Install will Exit.
 
 Raise a Project GitHub issue if you have problems.
 
-### Manual Install and Compile:
+## Manual Install and Compile:
 #### Linux / OSX / WSL (bash on windows)
 
 Open a desktop terminal or SSH session to the desired machine or Raspberry pi.
@@ -49,7 +53,7 @@ Run the following commands below to install, compile image-stitching.
 
 This assumes you are comfortable with SSH/Terminal commands
 
-#### Install and Compile OpenPano image-stitching 
+### Install and Compile OpenPano image-stitching 
 ```
 cd ~/
 sudo apt-get update
@@ -68,11 +72,11 @@ make
 
 ```
 
-#### Buster and Stretch
+### Buster and Stretch
 This curl install worked with a fresh install of Buster and (Stretch required eigen3 install). 
 Both Compiled and Tested OK. 
 
-#### Jessie
+### Jessie
 Jessie was running on an old single core processor. There was a problem with cmake complained about eigen3 support.
 It also complained about cmake version. Had to change ~OpenPano/CMakeLists.txt and OpenPano/src/CMakeLists.txt
 top line to lower version to ***cmake_minimum_required(VERSION 3.6.2)*** from 3.13. This worked except for a
@@ -80,7 +84,7 @@ minor non fatal macro warning. After cloning, compiling and installing Eigen3 pe
 cmake and make and ***image-stitching*** test ran like a charm.
 If you have cmake problems related to eigen3. You can install eigen3 support per the commands below.
 
-#### Install Eigen3 Support
+### Install Eigen3 Support
 ```
 cd ~/
 git clone https://github.com/libigl/eigen
@@ -103,7 +107,7 @@ per manual terminal instructions below.
 There are three test jpg files in the ~/OpenPano/images folder. To Test image-stitching
 perform the following commands
 
-#### Run a Test Stitch
+## Run a Test Stitch
 ```
 cd ~/OpenPano
 cp src/config.cfg ./
