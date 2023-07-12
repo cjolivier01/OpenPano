@@ -80,12 +80,13 @@ double Camera::estimate_focal(
 	if (ne < min(n - 1, 3))
 		return -1;	// focal estimate fail
 	sort(begin(estimates), end(estimates));
+	if (estimates.empty())
+		return -1;
 	if (ne % 2 == 1)
 		return estimates[ne >> 1];
 	else
 		return (estimates[ne >> 1] + estimates[(ne >> 1) - 1]) * 0.5;
 }
-
 
 //https://en.wikipedia.org/wiki/Rotation_matrix?oldformat=true#Determining_the_axis
 void Camera::rotation_to_angle(const Homography& r, double& rx, double& ry, double& rz) {

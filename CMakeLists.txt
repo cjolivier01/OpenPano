@@ -30,14 +30,14 @@ if (WIN32)
 	add_definitions( -DUNICODE -D_UNICODE)
 endif()
 
-
 # compiler options:
 if(MSVC)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -DWIN32_LEAN_AND_MEAN -DVC_EXTRALEAN -DMSVC)
 	# /Zo makes debug symbol in pdb in release mode in VS2015
 	add_definitions(/fp:fast /GR- /Os /Zo /arch:AVX /openmp)
 else()
-	add_definitions(-O3 -march=native -Wall -Wextra)
+	#add_definitions(-O3 -march=native -Wall -Wextra)
+	add_definitions(-O0 -g -march=native -Wall -Wextra)
 endif()
 add_definitions(-DDEBUG)
 

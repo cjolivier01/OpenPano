@@ -8,6 +8,8 @@ else()
 	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif()
 
+add_compile_options(-Wl,--unresolved-symbols=ignore-in-shared-libs)
+#add_link_options(--unresolved-symbols=ignore-in-shared-libs)
 
 find_package(JPEG)
 if(JPEG_FOUND)
@@ -30,6 +32,15 @@ target_link_libraries(openpano ${JPEG_LIBRARY} lodepng)
 
 add_executable(image-stitching main.cc)
 target_link_libraries(image-stitching openpano)
+
+# find_package(OpenGL REQUIRED)
+# include_directories( ${OpenGL_INCLUDE_DIRS} )
+# target_link_libraries( image-stitching ${OpenGL_LIBS} )
+#target_link_libraries(image-stitching)
+
+find_package(OpenCV REQUIRED)
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+target_link_libraries( image-stitching ${OpenCV_LIBS} )
 
 if (NOT JPEG_FOUND)
 	target_compile_definitions(openpano PUBLIC DISABLE_JPEG)
